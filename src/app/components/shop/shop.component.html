@@ -1,0 +1,111 @@
+<div class="body hiden-scroll">
+    <div class="container container-style hiden-scroll">
+        <button class="btn btn-success float-right m-3" type="button" data-toggle="modal"
+            data-target="#createShopModal">เพิ่มร้านค้า</button>
+        <table class="table text-dark ">
+            <thead>
+                <tr>
+                    <th class="align-middle" scope="col">ชื่อร้าน</th>
+                    <th class="align-middle" scope="col">รายละเอียด</th>
+                    <th class="align-middle" scope="col">ประเภท</th>
+                    <th class="align-middle" scope="col">สินค้าในคลัง</th>
+                    <th class="align-middle" [width]="120" scope="col">ไปยังหน้าขาย</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let shop of shopAllData">
+                <tr>
+                    <td class="align-middle">{{shop.shopName}}</td>
+                    <td class="align-middle">{{shop.description}}</td>
+                    <td class="align-middle">{{shop.category}}</td>
+                    <td>
+                        <div class="m-2">
+                            <img type="button" src="https://img.icons8.com/color/40/add--v1.png"
+                                (click)="getShopById(shop.shopId)" data-toggle="modal" data-target="#showProduct">
+                        </div>
+                    </td>
+                    <td class="align-middle">
+                        <div class="row">
+                            <div class="m-2">
+                                <img type="button" src="https://img.icons8.com/cotton/40/edit--v2.png"
+                                    (click)="getShopById(shop.shopId)" data-toggle="modal"
+                                    data-target="#editShopModal">
+                            </div>
+                            <div class="m-2">
+                                <img type="button" src="https://img.icons8.com/color/40/delete-forever.png"
+                                    (click)="deleteShop(shop.shopId)">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="modal fade" id="createShopModal" tabindex="-1" aria-labelledby="createShopModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-content-style" [formGroup]="formShop">
+            <div class="modal-header">
+                <h5 class="modal-title modal-title-txt" id="exampleModalLabel">เพิ่มร้านค้า</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body m-2">
+                <div class="row">
+                    <label for="shopName" class="txt-InModal">ชื่อร้านค้า</label>
+                    <input formControlName="shopName" type="text" class="form-control">
+                </div>
+                <div class="row">
+                    <label for="description" class="txt-InModal">รายละเอียด</label>
+                    <input formControlName="description" type="text" class="form-control">
+                </div>
+                <div class="row">
+                    <label for="category" class="txt-InModal">ประเภท</label>
+                    <input formControlName="category" type="text" class="form-control">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                    (click)="emptyForm()">ยกเลิก</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    (click)="createShop()">บันทึก</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editShopModal" tabindex="-1" aria-labelledby="editShopModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-content-style" [formGroup]="formShop">
+            <div class="modal-header">
+                <h5 class="modal-title modal-title-txt" id="exampleModalLabel">แก้ไขร้านค้า</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body m-2">
+                <div class="row">
+                    <label for="shopName" class="txt-InModal">ชื่อร้านค้า</label>
+                    <input formControlName="shopName" type="text" class="form-control">
+                </div>
+                <div class="row">
+                    <label for="description" class="txt-InModal">รายละเอียด</label>
+                    <input formControlName="description" type="text" class="form-control">
+                </div>
+                <div class="row">
+                    <label for="category" class="txt-InModal">ประเภท</label>
+                    <input formControlName="category" type="text" class="form-control">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                    (click)="emptyForm()">ยกเลิก</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editShop()">บันทึก</button>
+            </div>
+        </div>
+    </div>
+</div>

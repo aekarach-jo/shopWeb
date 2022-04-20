@@ -1,0 +1,55 @@
+<div class="container mt-5">
+    <form>
+        <div class="row">
+            <div class="col">
+                <h1>เพิ่มสินค้า</h1>
+            </div>
+            <div class="col-2">
+                <input type="text" class="form-control" placeholder="กรอกรหัสร้านค้า">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">ชื่อสินค้า</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">จำนวน</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">หน่วย</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">ประเภทสินค้า</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">รูป</label>
+                    <input type="file" class="form-control">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">รายละเอียดสินค้า</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-success float-right m-3" (click)="createShop()">เพิ่ม</button>
+    </form>
+</div>
